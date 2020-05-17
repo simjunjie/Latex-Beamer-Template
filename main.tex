@@ -70,6 +70,12 @@
     \end{frame}
 }
 
+% tikz
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{shape1} = [ellipse, minimum width=2em, minimum height=1em, text centered, draw=red, fill=gray!10]
+\tikzstyle{shape2} = [rectangle, minimum width=3em, minimum height=1cm, text centered, draw=blue, fill=gray!10]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
 \title{Beamer Template}
 \author{Sim Jun Jie}
 
@@ -110,6 +116,26 @@
     \begin{itemize}
         \item Share method used
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Tikz Picture}{Slides Format}
+    \begin{figure}
+        \centering
+        \resizebox{0.7\textwidth}{!}
+        {
+            \begin{tikzpicture}
+                \node (S1) [shape1] {$1$};
+                \node (S2) [shape1, below of=S1, yshift=-1cm] {$2$};
+                \node (S3) [shape1, below of=S2, yshift=-1cm] {$3$};
+                \node (S4) [shape2, right of=S2, xshift=4cm] {$4$};
+
+                \path (S1) -- node[auto=false]{$\vdots$} (S2);
+                \draw [arrow] (S1) -- node[midway,above,sloped]{Send stuff}(S4);
+                \draw [arrow] (S2) -- node[midway,above]{Send stuff}(S4);
+                \draw [arrow] (S3) -- node[midway,below,sloped]{Send stuff}(S4);
+            \end{tikzpicture}
+        }
+    \end{figure}
 \end{frame}
 
 \subsection{Results}
